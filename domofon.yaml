@@ -5,9 +5,9 @@
 
 substitutions:
   # Build configuration
-  board_name: "Domofon"
-  mdns_name: "domofon"
-  build_path: "domofon/"
+  board_name: "Domofon-sh"
+  mdns_name: "domofon-sh"
+  build_path: "domofon-sh/"
 
   # Relays configuration
   phone_relay_inverted: 'true'  # Set to 'false' if you have NO phone relay
