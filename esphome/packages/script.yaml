@@ -11,7 +11,8 @@ script:
           id(relay_mute).turn_off();
         }
         id(relay_answer).turn_off();
-        id(last_action).publish_state("none");
+        id(last_action).publish_state("none-none");
+        id(mode_hw_answer) = false;
 
   # Connected answer resistor
   - id: state_answer
