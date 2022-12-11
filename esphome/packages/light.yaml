@@ -29,6 +29,7 @@ light:
             static bool old_auto_open = false;
             static bool old_auto_open_once = false;
             static bool old_auto_reject = false;
+            static bool oid_answer = false;
 
             float brigtness = id(led_brightness).state / 10;
 
@@ -38,6 +39,7 @@ light:
             bool auto_open = id(mode_auto_open);
             bool auto_open_once = id(mode_auto_open_once);
             bool auto_reject = id(mode_auto_reject);
+            bool answer = id(answer);
             
             const bool state_updated = incoming != old_incoming
                               || mute != old_mute
@@ -45,6 +47,7 @@ light:
                               || auto_open != old_auto_open
                               || auto_open_once != old_auto_open_once
                               || auto_reject != old_auto_reject;
+                              || answer != old_answer;
 
             auto call = id(rgb_led).turn_on();
             bool connected = network::is_connected();
@@ -68,6 +71,9 @@ light:
                 call.set_brightness(brigtness);
               } else if (mute || mute_once) {
                 call.set_rgb(0.0, 0.4, 1.0); // blue
+                call.set_brightness(brigtness);
+              } else if (answer) {
+                call.set_rgb(1.0, 1.0, 0.0); //yellow
                 call.set_brightness(brigtness);
               } else {
                 call.set_brightness(0.01);
