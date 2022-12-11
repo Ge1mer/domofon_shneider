@@ -61,7 +61,7 @@ light:
                 call.set_brightness(0.01);
             } else if (tick == 0) {
               if (incoming || auto_reject) {
-                call.set_rgb(1.0, 0.0, 0.0); // red
+                call.set_rgb(1.0, 1.0, 0.0); // red
                 call.set_brightness(brigtness);
               } else if (mute && auto_open_once) {
                 call.set_rgb(0.0, 0.4, 1.0); // blue
@@ -97,7 +97,7 @@ light:
               } else if (auto_open_once) {
                 call.set_brightness(0.01);
               } else if (auto_reject) {
-                call.set_rgb(1.0, 0.0, 0.0); // red
+                call.set_rgb(1.0, 1.0, 0.0); // red
                 call.set_brightness(brigtness);  
               } else if (answer) {
                 call.set_rgb(1.0, 1.0, 0.0); //yellow
@@ -109,7 +109,7 @@ light:
               if (incoming) {
                 call.set_brightness(0.01);
               } else if (auto_reject) {
-                call.set_rgb(1.0, 0.0, 0.0); // red
+                call.set_rgb(1.0, 1.0, 0.0); // red
                 call.set_brightness(brigtness);
               } else if (auto_open) {
                 call.set_rgb(0.0, 1.0, 0.0); // green
@@ -124,7 +124,7 @@ light:
                 call.set_brightness(0.01);
               }
             } else if (tick == 7 && incoming) {
-              call.set_rgb(1.0, 0.0, 0.0); // red
+              call.set_rgb(1.0, 1.0, 0.0); // red
               call.set_brightness(brigtness);
             } else if (tick == 8 && incoming) {
               call.set_brightness(0.01);
