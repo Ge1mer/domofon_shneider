@@ -39,7 +39,7 @@ light:
             bool auto_open = id(mode_auto_open);
             bool auto_open_once = id(mode_auto_open_once);
             bool auto_reject = id(mode_auto_reject);
-            bool answer = id(answer);
+            bool answer = id(mode_hw_answer);
             
             const bool state_updated = incoming != old_incoming
                               || mute != old_mute
