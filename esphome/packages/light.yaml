@@ -98,6 +98,9 @@ light:
                 call.set_brightness(0.01);
               } else if (auto_reject) {
                 call.set_rgb(1.0, 0.0, 0.0); // red
+                call.set_brightness(brigtness);  
+              } else if (answer) {
+                call.set_rgb(1.0, 1.0, 0.0); //yellow
                 call.set_brightness(brigtness);
               } else {
                 call.set_brightness(0.01);
@@ -114,6 +117,9 @@ light:
               } else if (mute) {
                 call.set_rgb(0.0, 0.4, 1.0); // blue
                 call.set_brightness(brigtness);
+              } else if (answer) {
+                call.set_rgb(1.0, 1.0, 0.0); //yellow
+                call.set_brightness(brigtness);  
               } else {
                 call.set_brightness(0.01);
               }
@@ -135,3 +141,4 @@ light:
             old_auto_open = auto_open;
             old_auto_open_once = auto_open_once;
             old_auto_reject = auto_reject;
+            old_answer = answer;
