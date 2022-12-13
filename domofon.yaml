@@ -11,12 +11,6 @@ substitutions:
 
   # Relays configuration
   phone_relay_inverted: 'true'  # Set to 'false' if you have NO phone relay
-  
-globals:
-  id: mode_hw_answer
-  type: bool
-  restore_value: yes
-  initial_value: 'false'
 
   # Wifi credentials
   wifi_ssid: "-----"
