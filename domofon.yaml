@@ -34,20 +34,6 @@ substitutions:
   short_click_time_from: 50ms       # Short button click min time
   short_click_time_to: 1000ms       # Long button click min time
   
-binary_sensor:
-  pin: GPIO2
-  inverted: True
-  on_click:
-    then:
-      - lambda: |-
-          if (id(mode_hw_answer)) {
-          id(state_ready).execute();
-          id(mode_hw_answer) = false;
-          } else {
-          id(state_answer).execute();
-          id(last_action).publish_state("answer");
-          id(mode_hw_answer) = true;
-          }
 
 ########### End user configuration ###########
 
