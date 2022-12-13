@@ -13,7 +13,7 @@ substitutions:
   phone_relay_inverted: 'true'  # Set to 'false' if you have NO phone relay
   
 globals:
-  id: answer
+  id: mode_hw_answer
   type: bool
   restore_value: yes
   initial_value: 'false'
@@ -46,13 +46,13 @@ binary_sensor:
   on_click:
     then:
       - lambda: |-
-          if (id(answer)) {
+          if (id(mode_hw_answer)) {
           id(state_ready).execute();
-          answer = false;
+          mode_hw_answer = false;
           } else {
           id(state_answer).execute();
           id(last_action).publish_state("answer");
-          answer = true;
+          mode_hw_answer = true;
           }
 
 ########### End user configuration ###########
