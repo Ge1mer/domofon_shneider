@@ -1,0 +1,45 @@
+# Smart Intercom project
+# https://github.com/Ge1mer/domofon_shneider/
+
+############# User configuration #############
+
+substitutions:
+  # Build configuration
+  board_name: "Domofon-shn"
+  mdns_name: "domofon-shn"
+  build_path: "domofon-shn/"
+
+  # Relays configuration
+  phone_relay_inverted: 'true'  # Set to 'false' if you have NO phone relay
+
+  # Wifi credentials
+  wifi_ssid: "-----"
+  wifi_password: ""
+  ap_ssid: "domofon"
+  ap_password: "1234567890"
+
+  # MQTT credentials
+  mqtt_host: "10.0.0.1"
+  mqtt_port: "1883"
+  mqtt_username: ""
+  mqtt_password: ""
+
+  # OTA and API
+  ota_password: "esphome"
+  api_password: "esphome"
+
+  # Software configuration
+  call_start_detect_delay: 50ms     # Wait a while before going into a ring state
+  call_end_detect_delay: 4000ms     # Interval between rings to detect incoming call
+  short_click_time_from: 50ms       # Short button click min time
+  short_click_time_to: 1000ms       # Long button click min time
+  
+
+########### End user configuration ###########
+
+packages:
+  base: github://Ge1mer/domofon_shneider/esphome/packages/base.yaml@master
+  api: github://Ge1mer/domofon_shneider/esphome/packages/api.yaml@master
+  #mqtt: github://Ge1mer/domofon_shneider/esphome/packages/mqtt.yaml@master
+  #web_server: github://Ge1mer/domofon_shneider/esphome/packages/web_server.yaml@master
+  captive_portal: github://Ge1mer/domofon_shneider/esphome/packages/captive_portal.yaml@master
