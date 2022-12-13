@@ -117,3 +117,22 @@ binary_sensor:
             wifi::global_wifi_component->save_wifi_sta("-----", "");
             #endif
             App.safe_reboot();
+  - platform: gpio
+    name: "${board_name} answer button"
+    id: button_hw_answer
+    pin:
+      number: GPIO2
+      mode: INPUT_PULLUP
+      inverted: True
+
+    on_click:
+      then:
+        - lambda: |-
+            if (id(mode_hw_answer)) {
+            id(state_ready).execute();
+            id(mode_hw_answer) = false;
+            } else {
+            id(state_answer).execute();
+            id(last_action).publish_state("answer");
+            id(mode_hw_answer) = true;
+            }
