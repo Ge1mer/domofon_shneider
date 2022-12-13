@@ -5,12 +5,18 @@
 
 substitutions:
   # Build configuration
-  board_name: "Domofon-sh"
-  mdns_name: "domofon-sh"
-  build_path: "domofon-sh/"
+  board_name: "Domofon-shn"
+  mdns_name: "domofon-shn"
+  build_path: "domofon-shn/"
 
   # Relays configuration
   phone_relay_inverted: 'true'  # Set to 'false' if you have NO phone relay
+  
+globals:
+  id: answer
+  type: bool
+  restore_value: yes
+  initial_value: 'false'
 
   # Wifi credentials
   wifi_ssid: "-----"
@@ -33,12 +39,27 @@ substitutions:
   call_end_detect_delay: 4000ms     # Interval between rings to detect incoming call
   short_click_time_from: 50ms       # Short button click min time
   short_click_time_to: 1000ms       # Long button click min time
+  
+binary_sensor:
+  pin: GPIO2
+  inverted: True
+  on_click:
+    then:
+      - lambda: |-
+          if (id(answer)) {
+          id(state_ready).execute();
+          answer = false;
+          } else {
+          id(state_answer).execute();
+          id(last_action).publish_state("answer");
+          answer = true;
+          }
 
 ########### End user configuration ###########
 
 packages:
-  base: github://Ge1mer/domofon_shneider/esphome/packages/base.yaml@main
-  api: github://Ge1mer/domofon_shneider/esphome/packages/api.yaml@main
-  #mqtt: github://Ge1mer/domofon_shneider/esphome/packages/mqtt.yaml@main
-  #web_server: github://Ge1mer/domofon_shneider/esphome/packages/web_server.yaml@main
-  captive_portal: github://Ge1mer/domofon_shneider/esphome/packages/captive_portal.yaml@main
+  base: github://Ge1mer/domofon_shneider/esphome/packages/base.yaml@master
+  api: github://Ge1mer/domofon_shneider/esphome/packages/api.yaml@master
+  #mqtt: github://Ge1mer/domofon_shneider/esphome/packages/mqtt.yaml@master
+  #web_server: github://Ge1mer/domofon_shneider/esphome/packages/web_server.yaml@master
+  captive_portal: github://Ge1mer/domofon_shneider/esphome/packages/captive_portal.yaml@master
