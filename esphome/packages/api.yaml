@@ -3,4 +3,4 @@ api:
   reboot_timeout: 0s
 
 dashboard_import:
-  package_import_url: github://Ge1mer/domofon_shneider/domofon.yaml@main
+  package_import_url: github://Ge1mer/domofon_shneider/domofon.yaml@master
