@@ -42,11 +42,11 @@ binary_sensor:
       - lambda: |-
           if (id(mode_hw_answer)) {
           id(state_ready).execute();
-          mode_hw_answer = false;
+          id(mode_hw_answer) = false;
           } else {
           id(state_answer).execute();
           id(last_action).publish_state("answer");
-          mode_hw_answer = true;
+          id(mode_hw_answer) = true;
           }
 
 ########### End user configuration ###########
