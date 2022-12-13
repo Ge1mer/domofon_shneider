@@ -55,6 +55,10 @@ globals:
     type: bool
     restore_value: yes
     initial_value: 'false'
+  - id: mode_hw_answer
+    type: bool
+    restore_value: yes
+    initial_value: 'false'
 
 substitutions:
   # Ge1mer board
